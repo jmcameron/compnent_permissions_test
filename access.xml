@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <access component="com_permtest">
 	<section name="component">
-		<action name="core.admin" title="Configure Permtest Options" description="" />
+		<action name="core.admin" title="Configure Permtest Options"
+			description="" />
 
-		<action name="core.manage" title="Access Permtest Component" description="" />
+		<action name="core.manage" title="Access Permtest Component"
+			description="" />
 
-		<action name="core.create" title="Permtest create permission" description="" />
+		<action name="core.create" title="Permtest create permission" 
+			description="" />
 
-		<action name="core.delete" title="Permtest delete permission" description="" />
+		<action name="core.delete" title="Permtest delete permission" 
+			description="" />
 
-		<action name="core.edit" title="Permtest edit permission" description="" />
+		<action name="core.edit" title="Permtest edit permission"
+			description="" />
 
 		<action name="core.edit.own" title="Permtest edit own permission" 
 			description="" />
@@ -17,16 +22,26 @@
 		<action name="core.edit.state" title="Permtest edit state permission" 
 			description="" />
 
-		<action name="permtest.custom1" title="Permtest custom1 permission"
-			description="" />
+		<action name="permtest.default" title="Permtest default permission"
+			description="Defaults to system default permissions" />
 
-		<action name="permtest.custom2" title="Permtest custom2 permission" 
-			description="" />
+		<action name="permtest.custom1" title="Permtest custom1 permission"
+			description="Should default to core.manager for Author" 
+			default="Author:core.manage" />
+
+		<action name="permtest.custom2" title="Permtest custom2 permission"
+			description="Should default to core.create for Author" 
+			default="Author:core.create" />
 
 		<action name="permtest.custom3" title="Permtest custom3 permission"
-			description="" />
+			description="Should default to core.edit for Author" 
+			default="Author:core.edit" />
 
-		<action name="permtest.custom4" title="Permtest custom4 permission"
+		<action name="permtest.custom4" title="Permtest custom4 permission" 
+			description="Should default to core.edit.own for Author" 
+			default="Author:core.edit.own" />
+
+		<action name="permtest.custom5" title="Permtest custom5 permission"
 			description="" />
 	</section>
 </access>
