@@ -24,8 +24,6 @@ class PermtestView extends JViewLegacy
 	{
 		JToolBarHelper::title('Permissions test');
 		JToolBarHelper::preferences('com_permtest');
-
-		echo "TEST";
 	}
 
 }
