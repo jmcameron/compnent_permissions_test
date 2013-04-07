@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<access component="com_permtest">
+	<section name="component">
+		<action name="core.admin" title="Configure Permtest Options" description="" />
+
+		<action name="core.manage" title="Access Permtest Component" description="" />
+
+		<action name="core.create" title="Permtest create permission" description="" />
+
+		<action name="core.delete" title="Permtest delete permission" description="" />
+
+		<action name="core.edit" title="Permtest edit permission" description="" />
+
+		<action name="core.edit.own" title="Permtest edit own permission" 
+			description="" />
+
+		<action name="core.edit.state" title="Permtest edit state permission" 
+			description="" />
+
+		<action name="permtest.custom1" title="Permtest custom1 permission"
+			description="" />
+
+		<action name="permtest.custom2" title="Permtest custom2 permission" 
+			description="" />
+
+		<action name="permtest.custom3" title="Permtest custom3 permission"
+			description="" />
+
+		<action name="permtest.custom4" title="Permtest custom4 permission"
+			description="" />
+	</section>
+</access>

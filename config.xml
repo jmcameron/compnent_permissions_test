@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+
+  <fieldset name="permissions"
+            label="JCONFIG_PERMISSIONS_LABEL"
+            description="Component Permission Test Permissions">
+    <field name="rules" type="rules"
+           component="com_permtest"
+           filter="rules"
+           validate="rules"
+           label="JCONFIG_PERMISSIONS_LABEL"
+           section="component" />
+  </fieldset>
+
+</config>
