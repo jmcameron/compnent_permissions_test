@@ -2,27 +2,27 @@
 <access component="com_permtest">
 	<section name="component">
 		<action name="core.admin" title="Configure Permtest Options"
-			description="" />
+			description="Permtest core.admin permissions" />
 
 		<action name="core.manage" title="Access Permtest Component"
-			description="" />
+			description="Permtest core.manage permissions" />
 
 		<action name="core.create" title="Permtest create permission" 
-			description="" />
+			description="Permtest core.create permissions" />
 
 		<action name="core.delete" title="Permtest delete permission" 
-			description="" />
+			description="Permtest core.delete permissions" />
 
 		<action name="core.edit" title="Permtest edit permission"
-			description="" />
+			description="Permtest core.edit permissions" />
 
 		<action name="core.edit.own" title="Permtest edit own permission" 
-			description="" />
+			description="Permtest core.edit.own permissions" />
 
 		<action name="core.edit.state" title="Permtest edit state permission" 
-			description="" />
+			description="Permtest core.edit.state permissions" />
 
-		<action name="permtest.default" title="Permtest default permission"
+		<action name="permtest.default" title="Permtest custom default permission"
 			description="Defaults to system default permissions" />
 
 		<action name="permtest.custom1" title="Permtest custom1 permission"
