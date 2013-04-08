@@ -46,10 +46,28 @@ class PermtestController extends JControllerLegacy
 		$app = JFactory::getApplication();
 
 		if ( method_exists('JAccess', 'installComponentDefaultRules') ) {
-			$app->enqueueMessage('Installed default rules for permtest', 'message');
+			JAccess::installComponentDefaultRules('com_permtest');
+			$app->enqueueMessage('Installed defaults for custom rules for permtest', 'message');
 			}
 		else {
-			$app->enqueueMessage('Unable to install default rules for permtest (JAccess not patched)', 'message');
+			$app->enqueueMessage('Unable to install defaults for custom rules for permtest (JAccess not patched)', 'message');
+			}
+
+		$this->execute('display');
+		$this->redirect();
+	}
+
+
+	public function purgeDefaultRules()
+	{
+		$app = JFactory::getApplication();
+
+		if ( method_exists('JAccess', 'installComponentDefaultRules') ) {
+			JAccess::purgeComponentDefaultRules('com_permtest');
+			$app->enqueueMessage('Purged defaults for custom rules for permtest', 'message');
+			}
+		else {
+			$app->enqueueMessage('Unable to purge defaults for custom rules for permtest (JAccess not patched)', 'message');
 			}
 
 		$this->execute('display');

@@ -30,18 +30,20 @@
 			default="Author:core.manage" />
 
 		<action name="permtest.custom2" title="Permtest custom2 permission"
-			description="Should default to core.create for Author" 
+			description="Should match default for core.create for Author" 
 			default="Author:core.create" />
 
 		<action name="permtest.custom3" title="Permtest custom3 permission"
-			description="Should default to core.edit for Author" 
-			default="Author:core.edit" />
+			description="Should match default for core.edit for Editor" 
+			default="Editor:core.edit" />
 
 		<action name="permtest.custom4" title="Permtest custom4 permission" 
-			description="Should default to core.edit.own for Author" 
-			default="Author:core.edit.own" />
+			description="Should match default for core.edit.state for Publisher" 
+			default="Publisher:core.edit.state" />
 
 		<action name="permtest.custom5" title="Permtest custom5 permission"
-			description="" />
+			description="Should default to core.manage for Administrator"
+		        default="Administrator:core.manage" />
+
 	</section>
 </access>
