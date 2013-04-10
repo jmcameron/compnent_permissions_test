@@ -1,3 +1,22 @@
+
+body.com_permtest div.alert p
+{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+a.test-link
+{
+    color: #F00;
+    padding-left: 30px;
+}
+
+ol.test-instructions li
+{
+    padding: 3px 0 3px 0;
+}
+
+
 table#permtest-aclgrid 
 { 
     background-color: #FFF;
@@ -11,7 +30,7 @@ table#permtest-aclgrid td
 {
     background-color: #FFF;
     text-align: left; 
-    padding: 6px;
+    padding: 2px 6px 2px 6px;
     border: 1px solid #000;
 }
 
