@@ -39,7 +39,7 @@ class PermtestView extends JViewLegacy
 		echo "  <li>Check the component permissions again. ";
 		echo       "<i>Notice that some of the custom permissions are now allowed (eg, check the Author group).</i></li>";
 		echo "  <li>Now click on the red 'Purge Default Permissions' link below. ";
-		echo       "<i>The custom permissions should revert to the denied for everyone.</i></li>";
+		echo       "<i>The custom permissions should revert to denied for everyone.</i></li>";
 		echo "</ol>";
 		echo '<h2>';
 		echo '<a class="test-link" href="index.php?option=com_permtest&amp;task=installDefaultRules">Install Default Permissions</a>';

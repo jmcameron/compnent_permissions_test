@@ -13,7 +13,7 @@ a.test-link
 
 ol.test-instructions li
 {
-    padding: 3px 0 3px 0;
+    padding: 2px 0 2px 0;
 }
 
 
@@ -30,7 +30,7 @@ table#permtest-aclgrid td
 {
     background-color: #FFF;
     text-align: left; 
-    padding: 2px 6px 2px 6px;
+    padding: 1px 6px 2px 1px;
     border: 1px solid #000;
 }
 
