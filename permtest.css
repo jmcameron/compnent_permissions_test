@@ -5,7 +5,13 @@ body.com_permtest div.alert p
     margin-bottom: 0;
 }
 
-a.test-link
+h2
+{
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+h2.test-links a.test-link
 {
     color: #F00;
     padding-left: 30px;
@@ -14,6 +20,8 @@ a.test-link
 ol.test-instructions li
 {
     padding: 2px 0 2px 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 

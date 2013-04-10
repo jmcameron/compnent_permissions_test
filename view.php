@@ -41,7 +41,7 @@ class PermtestView extends JViewLegacy
 		echo "  <li>Now click on the red 'Purge Default Permissions' link below. ";
 		echo       "<i>The custom permissions should revert to denied for everyone.</i></li>";
 		echo "</ol>";
-		echo '<h2>';
+		echo '<h2 class="test-links">';
 		echo '<a class="test-link" href="index.php?option=com_permtest&amp;task=installDefaultRules">Install Default Permissions</a>';
 		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 		echo '<a class="test-link" href="index.php?option=com_permtest&amp;task=purgeDefaultRules">Purge Default Permissions</a>';
