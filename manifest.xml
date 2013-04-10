@@ -13,10 +13,11 @@
 	<menu>Component permissions test</menu>
 	<files>
 	    <filename>permtest.php</filename>
-	    <filename>controller.php</filename>
-	    <filename>view.php</filename>
 	    <filename>access.xml</filename>
 	    <filename>config.xml</filename>
+	    <filename>controller.php</filename>
+	    <filename>permtest.css</filename>
+	    <filename>view.php</filename>
 	</files>
     </administration>
 

@@ -26,6 +26,9 @@ class PermtestView extends JViewLegacy
 		JToolBarHelper::title('Permissions test');
 		JToolBarHelper::preferences('com_permtest');
 
+		$doc = JFactory::getDocument();
+		$doc->addStyleSheet('components/com_permtest/permtest.css');
+
 		echo "<div style=\"font-size: 1.5em\">";
 		echo "<h2>Suggested test sequence:</h2>";
 		echo "<ol>";
@@ -37,11 +40,61 @@ class PermtestView extends JViewLegacy
 		echo "  <li><p>Now click on the red 'Purge Default Permissions' link below. </p>";
 		echo       "<p><i>The custom permissions should revert to the denied for everyone.</i></p></li>";
 		echo "</ol>";
+		echo '<h2 style="padding-left: 30px">';
+		echo '<a style="color: #F00" href="index.php?option=com_permtest&amp;task=installDefaultRules">Install Default Permissions</a>';
+		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		echo '<a style="color: #F00" href="index.php?option=com_permtest&amp;task=purgeDefaultRules">Purge Default Permissions</a>';
+		echo '</h2>';
 
-		echo '<h2 style="padding-left: 30px"><a style="color: #F00" href="index.php?option=com_permtest&amp;task=installDefaultRules">Install Default Permissions</a></h2>';
+		echo PermtestView::showPermissions();
+	}
 
-		echo '<h2 style="padding-left: 30px"><a style="color: #F00" href="index.php?option=com_permtest&amp;task=purgeDefaultRules">Purge Default Permissions</a></h2>';
+	public static function showPermissions()
+	{
+		$groups = Array( 1 => 'Public',
+						 6 => 'Manager',
+						 7 => 'Administrator',
+						 2 => 'Registered',
+						 3 => 'Author',
+						 4 => 'Editor',
+						 5 => 'Publisher',
+						 8 => 'Super User',
+						 );
 
+		$actions = Array( "core.admin", "core.manage", "core.create", "core.delete",
+						  "core.edit", "core.edit.own", "core.edit.state",
+						  "permtest.default", 
+						  "permtest.custom.author",
+						  "permtest.custom.author.manage",
+						  "permtest.custom.author.create", 
+						  "permtest.custom.editor.edit", 
+						  "permtest.custom.publisher.edit.state", 
+						  "permtest.custom.admin.manage", 
+						  );
+
+		$html = "<h2>Default permissions for component 'com_permtest'</h2>\n";
+		$html .= "<table id=\"permtest-aclgrid\">";
+		$html .= "\n<thead><tr><th>Action</th>";
+		foreach ($groups as $id => $name)
+		{
+			$html .= '<th>' . $name . '</th>';
+		}
+		$html .= '</tr><thead>';
+
+		$html .= "\n<tbody>";
+		foreach ($actions as $action)
+		{
+			$html .= "\n<tr><td>" . $action . '</td>';
+			foreach ($groups as $id => $name)
+			{
+				$ok = JAccess::checkGroup($id, $action) ? 'OK' : 'Denied';
+				$html .= '<td>'. $ok . '</td>';
+			}
+			$html .= '</tr>';
+		}
+
+		$html .= '</tbody></table>';
+		return $html;
 	}
 
 }
