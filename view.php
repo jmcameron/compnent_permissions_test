@@ -59,18 +59,23 @@ class PermtestView extends JViewLegacy
 						 3 => 'Author',
 						 4 => 'Editor',
 						 5 => 'Publisher',
-						 8 => 'Super User',
+						 8 => 'Super Users',
 						 );
 
 		$actions = Array( "core.admin", "core.manage", "core.create", "core.delete",
 						  "core.edit", "core.edit.own", "core.edit.state",
 						  "permtest.default", 
-						  "permtest.custom.author",
-						  "permtest.custom.author.manage",
-						  "permtest.custom.author.create", 
-						  "permtest.custom.editor.edit", 
-						  "permtest.custom.publisher.edit.state", 
-						  "permtest.custom.admin.manage", 
+						  "permtest.custom.author1",
+						  "permtest.custom.author2",
+						  "permtest.custom.editor1",
+						  "permtest.custom.editor2",
+						  "permtest.custom.publisher1",
+						  "permtest.custom.publisher2",
+						  "permtest.custom.manager1",
+						  "permtest.custom.manager2",
+						  "permtest.custom.authmanage",
+						  "permtest.custom.administrator1",
+						  "permtest.custom.administrator2",
 						  );
 
 		$html = "<h2>Default permissions for component 'com_permtest'</h2>\n";
