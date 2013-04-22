@@ -46,6 +46,7 @@ class PermtestView extends JViewLegacy
 		echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 		echo '<a class="test-link" href="index.php?option=com_permtest&amp;task=purgeDefaultRules">Purge Default Permissions</a>';
 		echo '</h2>';
+		echo "<h3>Hover over the non-core actions (first column) to see the actual default specification in the 'access.xml' file.";
 
 		echo PermtestView::showPermissions();
 	}
@@ -62,22 +63,32 @@ class PermtestView extends JViewLegacy
 						 8 => 'Super Users',
 						 );
 
-		$actions = Array( "core.admin", "core.manage", "core.create", "core.delete",
-						  "core.edit", "core.edit.own", "core.edit.state",
-						  "permtest.default", 
-						  "permtest.custom.author1",
-						  "permtest.custom.author2",
-						  "permtest.custom.editor1",
-						  "permtest.custom.editor2",
-						  "permtest.custom.publisher1",
-						  "permtest.custom.publisher2",
-						  "permtest.custom.manager1",
-						  "permtest.custom.manager2",
-						  "permtest.custom.authmanage",
-						  "permtest.custom.administrator1",
-						  "permtest.custom.administrator2",
+		$defaults = Array('core.admin' => '',
+						  'core.manage' => '',
+						  'core.create' => '',
+						  'core.delete' => '',
+						  'core.edit' => '',
+						  'core.edit.own' => '',
+						  'core.edit.state' => '',
+						  'permtest.default' => 'No default give: Defaults to system default permissions (denied)',
+						  'permtest.custom.author1' => 'com_content:core.create',
+						  'permtest.custom.author2' => 'com_content:core.create[Author]',
+						  'permtest.custom.editor1' => 'com_content:core.edit',
+						  'permtest.custom.editor2' => 'com_content:core.edit[Editor]',
+						  'permtest.custom.manager1' => 'com_content:core.edit.state',
+						  'permtest.custom.manager2' => 'com_content:core.edit.state[Manager]',
+						  'permtest.custom.publisher1' => 'com_content:core.edit.state',
+						  'permtest.custom.publisher2' => 'com_content:core.edit.state[Publisher]',
+						  'permtest.custom.manager1' => 'com_content:core.delete',
+						  'permtest.custom.manager2' => 'com_content:core.delete[Manager]',
+						  'permtest.custom.authmanage' => 'com_content:core.create[Author],com_content:core.delete[Manager]',
+						  'permtest.custom.administrator1' => 'com_content:core.admin',
+						  'permtest.custom.administrator2' => 'com_content:core.admin[Administrator]'
 						  );
 
+		$actions = array_keys($defaults);
+
+		// $actons = array_keys($defaults);
 		$html = "<h2>Default permissions for component 'com_permtest'</h2>\n";
 		$html .= "<table id=\"permtest-aclgrid\">";
 		$html .= "\n<thead><tr><th>Action</th>";
@@ -90,7 +101,8 @@ class PermtestView extends JViewLegacy
 		$html .= "\n<tbody>";
 		foreach ($actions as $action)
 		{
-			$html .= "\n<tr><td>" . $action . '</td>';
+			$default = $defaults[$action];
+			$html .= "\n<tr><td title=\"$default\">" . $action . '</td>';
 			foreach ($groups as $id => $name)
 			{
 				$ok = JAccess::checkGroup($id, $action) ? 'OK' : 'Denied';

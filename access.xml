@@ -59,15 +59,15 @@
 
 		<action name="permtest.custom.manager1" title="Permtest custom enable manager"
 			description="Should default true for manager"
-			default="com_content:core.manage" />
+			default="com_content:core.delete" />
 
 		<action name="permtest.custom.manager2" title="Permtest custom enable manager (with hint)"
 			description="Should default true for manager"
-			default="com_content:core.manage[Manager]" />
+			default="com_content:core.delete[Manager]" />
 
 		<action name="permtest.custom.authmanage" title="Permtest custom enable author+manager (with hint)"
 			description="Should default true for author or manager"
-			default="com_content:core.create[Author],com_content:core.manage[Manager]" />
+			default="com_content:core.create[Author],com_content:core.delete[Manager]" />
 
 		<action name="permtest.custom.administrator1" title="Permtest custom enable administrator"
 			description="Should default true for administrator"
