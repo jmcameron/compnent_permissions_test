@@ -23,11 +23,11 @@ Joomla Tracker: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerI
 Background / Motivation
 -----------------------
 
-There is currently no way to specify the default action permission rules for a
-component that has component-specific custom permission rules.  If component
-developers want default ACL rules for their custom ACL rules, they need to
-create code that modifies the root asset.  This is extra work for component
-developers and a potential source of errors and problems.
+There is currently no easy way to specify the default action permission rules
+for a component that has component-specific custom permission rules.  If
+component developers want default ACL rules for their custom ACL rules, they
+must create code that modifies the root asset.  This is extra work for
+component developers and a potential source of errors and problems.
 
 Proposed Fix
 ------------
@@ -41,9 +41,9 @@ the 'access.xml' and add the appropriate permissions to the system.
 
 The proposed function provides new functions to install or remove the default
 permissions specified in the 'access.xml' file.  Normally this would be done
-in by the installer by having the component developer call the new function
-during component installation.  In the following description, assume the new
-function is called by the installer.
+in by the installer by having the component installer call the new function
+during installation.  In the following description, assume the new function is
+called by the installer.
 
 These additions will be backwards compatible since the additional XML
 attributes will be ignored by versions of Joomla that have not implemented
@@ -70,7 +70,7 @@ ACL rules, a few guiding principles are necessary:
      for a suitable group with the required permissions.  All groups will be
      checked and the one with the least authority will be used (eg, if both
      Author and Publisher have the required permission, Author will be chosen
-     since Publisher is more authoritative).
+     since Publisher has more authority).
 
   4. This new feature would only be applied to any custom component-specific
      rule in a components 'access.xml'.  This approach cannot be used to
@@ -98,8 +98,8 @@ that all derived groups also have this permission.
 
 Note that this could be a comma-separated list of group names.
 
-The component developer could also specify a hint at which group to check
-first: 
+The component developer could also specify a hint on which group to check
+first:
 
 ```xml
 <action name="example.delete.own"
@@ -110,8 +110,9 @@ first:
 ```
 
 In this case, the installer would first check to see if the 'Author' group has
-the required permission.  If it does, it would be used.  If not, a warning
-message would be given and the search would continue.
+the required permission.  If it does, it would be used.  If not, no warning
+message would be given and the search for a group with that permission would
+continue.
 
 Note that the test component could be something other than 'com_content':
 
@@ -124,7 +125,8 @@ Note that the test component could be something other than 'com_content':
 ```
 
 Which would find a group that has permission to do 'core.delete' for the
-'com_xyz123' component.
+'com_xyz123' component.  This could be used to synchronize default permissions
+between two related components.
 
 
 Testing the new functionality
@@ -138,23 +140,23 @@ This includes a zipped up version of the component that is ready to install.
 
    comp_permtest.zip
 
-This test component should work on Joomla 2.5.x and 3.x.  Obviously the
+This test component should work on both Joomla 2.5.x and 3.x.  Obviously the
 functions will not do anything if the fixes to Joomla described here are not
 implemented.
 
 To try these fixes:
 
-   * Install the fixes on your Joomla 2.5.7+ or 3.x site (by doing 'git pull'
-     or using a patch file)
+   * Install the fixes on your Joomla 2.5 or 3.x site (by doing 'git pull' or
+     using a patch file)
 
-   * Install the component in the regular way then go to the
+   * Install the component in the regular way and then go to the
      'component-permissions-test' component under the 'Components' menu in the
      back end.
 
    * Read the  instructions there on how to test it.
 
-Note that these fixes include unit tests for the new capabilities.  See the
-bottom of the this document.
+Note that these fixes include unit tests for the new capabilities (on the
+Joomal 3.x version).  See the bottom of the this document.
 
 
 Implementation Notes
@@ -179,6 +181,21 @@ JRules:
  * This could be moved elsewhere, but there did not seem to be a suitable
    place.  We may want to add a JUserGroup class (in
    libraries/joomla/user/group.php) and move this function into that class.
+
+
+**JAccess::removeDescendentGroups($groupIds)**
+
+ * Removes all groups in the provided set of groups that have ancestors in the
+   set of groups.  This is part of the code that helps select the least
+   authoritative group since it eliminates children of groups that are already
+   in the set since the child group is likely to have more permissions than
+   its parent group.
+
+
+**JAccess::leastAuthoritativeGroup($groupIds, $asset)**
+
+ * Selects the least authoritative group out of a set of groups.  
+   Read the code for a clearer idea of how this works.
 
 
 **JAccess::installComponentDefaultRules($component, $file = null)**
