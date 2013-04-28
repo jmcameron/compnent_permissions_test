@@ -25,6 +25,14 @@
 		<action name="permtest.default" title="Permtest custom default"
 			description="Defaults to system default permissions (denied)" />
 
+		<action name="permtest.custom.registered1" title="Permtest custom enable registered"
+			description="Should default true for registered"
+			default="com_content:core.login.site" />
+
+		<action name="permtest.custom.registered2" title="Permtest custom enable registered (with hint)"
+			description="Should default true for registered"
+			default="com_content:core.login.site[Registered]" />
+
 		<action name="permtest.custom.author1" title="Permtest custom enable author"
 			description="Should default true for author"
 			default="com_content:core.create" />
