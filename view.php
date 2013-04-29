@@ -63,8 +63,10 @@ class PermtestView extends JViewLegacy
 						 8 => 'Super Users',
 						 );
 
-		$defaults = Array('core.admin' => 'core.admin (cannot be modified by this function)',
+		$defaults = Array('core.login.admin' => 'core.login.admin (cannot be modified by this function)',
+						  'core.admin' => 'core.admin (cannot be modified by this function)',
 						  'core.manage' => 'core.manage (cannot be modified by this function)',
+						  'core.login.site' => 'core.login.site (cannot be modified by this function)',
 						  'core.create' => 'core.create (cannot be modified by this function)',
 						  'core.delete' => 'core.delete (cannot be modified by this function)',
 						  'core.edit' => 'core.edit (cannot be modified by this function)',
