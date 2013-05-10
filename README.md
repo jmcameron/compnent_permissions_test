@@ -1,7 +1,7 @@
-compnent_permissions_test
-=========================
+component_permissions_test
+==========================
 
-Joomla component for testing specifying defaults for component-defined
+Joomla component for testing specifying defaults for component-custom
 permissions
 
 This test component should work on Joomla 2.5.x and 3.x with the necessary
@@ -134,7 +134,7 @@ Testing the new functionality
 
 A test component 'com_permtest' is available on github:
 
-   https://github.com/jmcameron/compnent_permissions_test
+   https://github.com/jmcameron/component_permissions_test
 
 This includes a zipped up version of the component that is ready to install.
 
